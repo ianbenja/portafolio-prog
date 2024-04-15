@@ -1,4 +1,4 @@
-import Menu from "./components/Menu";
+import Menu from "./components/Menu/Menu";
 import Imagen from "./components/Imagen";
 import Proyecto from "./components/Proyecto";
 
