@@ -1,6 +1,7 @@
 import Menu from "./components/Menu/Menu";
 import Imagen from "./components/Imagen";
-import Proyecto from "./components/Proyecto";
+import Proyects from "./components/Proyects/Proyects";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <div className="flex gap-4 items-center">
         <Imagen />
       </div>
-      <Proyecto />
+      <Proyects />
+      <Contact />
     </>
   );
 }
