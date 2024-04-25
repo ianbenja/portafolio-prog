@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Logo from "./Logo";
 import {
   Navbar,
   NavbarBrand,
@@ -24,6 +25,9 @@ const Menu = () => {
   const menuItems = ["Sobre Mi", "Habilidades", "Proyectos", "Contacto"];
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <NavbarBrand>
+        <Logo />
+      </NavbarBrand>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}

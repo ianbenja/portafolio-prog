@@ -38,3 +38,11 @@ export const CONTACT = {
   email: " asdf@gmail.com",
   phone: "1234567890",
 };
+
+export const PRESENTACION = {
+  name: "Ian Benjamin",
+  parrafo1:
+    "Desarrollador Web Full Stack apasionado Finalizando la carrera de Ingenieria en Sistemas de Información.",
+  parrafo2:
+    "Mi enfoque se centra en crear soluciones innovadoras que combinan creatividad y funcionalidad. ¡Explora mi portafolio para ver ejemplos de mi trabajo y contáctame si quieres colaborar en algún proyecto!",
+};
