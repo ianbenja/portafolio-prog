@@ -41,8 +41,15 @@ export const CONTACT = {
 
 export const PRESENTACION = {
   name: "Ian Benjamin",
+  parrafo1: "Desarrollador Web Full Stack ",
+  parrafo2: "Finalizando la carrera de Ingenieria en Sistemas de Información.",
+};
+
+export const SOBRERMI = {
+  name: "Sobre mi",
   parrafo1:
-    "Desarrollador Web Full Stack apasionado Finalizando la carrera de Ingenieria en Sistemas de Información.",
+    "Soy un desarrollador web fullstack, con experiencia en tecnologías como React, Node.js, Express, MongoDB, PostgreSQL, entre otras. Me gusta aprender cosas nuevas y compartir conocimientos.",
   parrafo2:
     "Mi enfoque se centra en crear soluciones innovadoras que combinan creatividad y funcionalidad. ¡Explora mi portafolio para ver ejemplos de mi trabajo y contáctame si quieres colaborar en algún proyecto!",
+  tecnologias: ["React", "AWS", "Angular", "HTML5", "CSS3"],
 };
