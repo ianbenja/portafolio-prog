@@ -6,6 +6,7 @@ import Intro from "./components/Intro";
 import SobreMi from "./components/SobreMi";
 import { motion } from "framer-motion";
 import { Divider } from "@nextui-org/react";
+import MenuPrueba from "./components/MenuPrueba";
 
 function App() {
   return (
@@ -33,7 +34,6 @@ function App() {
         <Divider className="my-4" />
       </div>
       <Proyects />
-
       <Contact />
     </>
   );

@@ -20,7 +20,7 @@ const Proyects = () => {
       <div className="">
         {PROJECTS.map((project, index) => (
           <div key={index} className="mb-8 flex flex-wrap  lg:justify-center ">
-            <div className="w-full lg:w-1/4 flex justify-center">
+            <div className="w-full lg:w-1/4  flex justify-center">
               <motion.img
                 whileInView={{ opacity: 1, x: 0 }}
                 initial={{ opacity: 0, x: -100 }}
@@ -49,7 +49,7 @@ const Proyects = () => {
                 </div>
               </motion.div>
             </div>
-            <div className="w-full lg:w-1/2 place-content-center text-center justify-center">
+            <div className="w-full lg:w-3/4  place-content-center text-center justify-center overflow-x-hidden">
               <motion.h6
                 whileInView={{ opacity: 1, x: 0 }}
                 initial={{ opacity: 0, x: 100 }}

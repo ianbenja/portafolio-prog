@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 
 import {
@@ -18,17 +18,20 @@ import { InglesIcon } from "./Inlges";
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState("Español");
-  const [selectedItem, setSelectedItem] = useState(0); // Estado del ítem seleccionado
+  const [selectedItem, setSelectedItem] = useState(0);
 
   const menuItems = ["home", "sobremi", "proyects", "contact"];
 
   const handleMenuItemClick = (index) => {
-    setSelectedItem(index); // Actualiza el estado del ítem seleccionado
-    setIsMenuOpen(false); // Cierra el menú cuando se hace clic en un elemento
+    setSelectedItem(index);
+    setIsMenuOpen(false); // Close the menu when any menu item is clicked
   };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={(isOpen) => setIsMenuOpen(isOpen)}
+      data-menu-open={isMenuOpen ? "true" : "false"}
+    >
       <NavbarBrand>
         <Logo />
       </NavbarBrand>
@@ -36,6 +39,7 @@ const Menu = () => {
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           className="sm:hidden"
+          data-open={isMenuOpen ? "true" : "false"}
         />
         <Switch
           defaultSelected
@@ -73,7 +77,7 @@ const Menu = () => {
         ))}
       </NavbarContent>
 
-      <NavbarMenu>
+      <NavbarMenu data-menu-open={isMenuOpen ? "true" : "false"}>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
