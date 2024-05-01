@@ -9,13 +9,14 @@ export const PROJECTS = [
     image: project1,
     description:
       "Desarrollo de una herramienta de ayuda a las tomas de decisiones complejas donde se tienen que tener en cuenta multiples criterios.",
-    tecnologias: ["HTML", "CSS", "JS", "REACT", "AWS", "MONGODB"],
+    tecnologias: ["REACT", "AWS", "Python", "Lambda"],
   },
   {
-    title: "Proyecto 2",
+    title: "Pagina de Futbol",
     image: project2,
-    description: "Descripción del proyecto 2",
-    tecnologias: ["HTML", "CSS", "JS", "REACT", "NODE.JS", "MONGODB"],
+    description:
+      "Pagina que permite inscribir jugadores en equipos de futbol y modificarlos, ademas de realizar tu equipo ideal.",
+    tecnologias: ["AWS", "REACT", "Node.JS", "Lambda", "S3", "DynamoDB"],
   },
   {
     title: "Proyecto 3",

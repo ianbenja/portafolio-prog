@@ -1,28 +1,32 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
+
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
   Switch,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { MoonIcon } from "./MoonIcon";
-import { SunIcon } from "./SunIcon";
 import { ArgentinaIcon } from "./Argentina";
 import { InglesIcon } from "./Inlges";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [lenguajes, setLenguajes] = useState("Español");
+  const [language, setLanguage] = useState("Español");
+  const [selectedItem, setSelectedItem] = useState(0); // Estado del ítem seleccionado
 
-  const menuItems = ["Sobre Mi", "Habilidades", "Proyectos", "Contacto"];
+  const menuItems = ["home", "sobremi", "proyects", "contact"];
+
+  const handleMenuItemClick = (index) => {
+    setSelectedItem(index); // Actualiza el estado del ítem seleccionado
+    setIsMenuOpen(false); // Cierra el menú cuando se hace clic en un elemento
+  };
+
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarBrand>
@@ -30,7 +34,7 @@ const Menu = () => {
       </NavbarBrand>
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           className="sm:hidden"
         />
         <Switch
@@ -38,70 +42,46 @@ const Menu = () => {
           size="lg"
           color="secondary"
           thumbIcon={({ isSelected, className }) =>
-            isSelected
-              ? (setLenguajes("Español"),
-                (<ArgentinaIcon className={className} />))
-              : (setLenguajes("Inglish"),
-                (<InglesIcon className={className} />))
+            isSelected ? (
+              <ArgentinaIcon className={className} />
+            ) : (
+              <InglesIcon className={className} />
+            )
+          }
+          onChange={() =>
+            setLanguage(language === "Español" ? "Inglés" : "Español")
           }
         >
-          {lenguajes}
+          {language}
         </Switch>
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Sobre Mi
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Habilidades
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Proyectos
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Contacto
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Switch
-            defaultSelected
-            size="lg"
-            color="secondary"
-            thumbIcon={({ isSelected, className }) =>
-              isSelected ? (
-                <SunIcon className={className} />
-              ) : (
-                <MoonIcon className={className} />
-              )
-            }
+        {menuItems.map((item, index) => (
+          <NavbarItem
+            key={`${item}-${index}`}
+            isActive={selectedItem === index}
           >
-            Dark mode
-          </Switch>
-        </NavbarItem>
+            <Link
+              color={selectedItem === index ? "primary" : "foreground"}
+              href={`#${item}`}
+              size="lg"
+              onClick={() => handleMenuItemClick(index)}
+            >
+              {item}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
+              color={selectedItem === index ? "primary" : "foreground"}
               className="w-full"
-              href="#"
+              href={`#${item}`}
               size="lg"
+              onClick={() => handleMenuItemClick(index)}
             >
               {item}
             </Link>

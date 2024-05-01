@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Intro = () => {
   return (
-    <div>
+    <div id="intro">
       <div className="flex flex-col items-center justify-center  text-white text-center">
         <motion.h1
           initial={{ x: -100, opacity: 0 }}

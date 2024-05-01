@@ -2,7 +2,7 @@ import { CONTACT } from "../../constants";
 
 const Contact = () => {
   return (
-    <div className="border-b border-neutral-900 pb-20">
+    <div id="contact" className="border-b border-neutral-900 pb-20">
       <h1 className="my-10 text-center text-4xl">Entra en Contacto</h1>
       <div className="text-center tracking-tighter">
         <p className="my-4"> {CONTACT.address}</p>
