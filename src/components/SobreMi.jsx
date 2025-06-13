@@ -1,41 +1,32 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { SOBRERMI } from "../constants";
+import { SOBRERMI } from "../constants"; // <-- Corregido aquí
 import Tecnologias from "./Tecnologias";
+import { Section, SectionTitle } from "./Section";
+
 const SobreMi = () => {
   return (
-    <div id="sobremi">
-      <div className="flex flex-col items-center justify-center  text-white text-center my-36">
-        <motion.h1
-          whileInView={{ opacity: 1, x: 0 }}
+    <Section id="sobre-mí">
+      <SectionTitle>Sobre Mí</SectionTitle>
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+        <motion.div
           initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="pb-16 text-6xl   lg:mt-16 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent"
-        >
-          {SOBRERMI.name}
-        </motion.h1>
-
-        <motion.p
           whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-lg text-lg max-w-[540px]  "
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="lg:col-span-3 text-lg text-neutral-300 space-y-6 text-center lg:text-left"
         >
-          {SOBRERMI.parrafo1}
-        </motion.p>
-        <motion.p
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="text-lg mt-4 text-lg max-w-[640px] "
-        >
-          {SOBRERMI.parrafo2}
-        </motion.p>
-        <div>
+          {/* Corregido aquí */}
+          <p>{SOBRERMI.parrafo1}</p>
+          <p>{SOBRERMI.parrafo2}</p>
+        </motion.div>
+        <div className="lg:col-span-2 flex flex-col items-center">
+          <h3 className="text-2xl font-semibold mb-8 text-center text-neutral-200">
+            Mis Tecnologías
+          </h3>
           <Tecnologias />
         </div>
       </div>
-    </div>
+    </Section>
   );
 };
 

@@ -1,93 +1,71 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
-
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
   Link,
-  Switch,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { ArgentinaIcon } from "./Argentina";
-import { InglesIcon } from "./Inlges";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("Español");
-  const [selectedItem, setSelectedItem] = useState(0);
 
-  const menuItems = ["home", "sobremi", "proyects", "contact"];
-
-  const handleMenuItemClick = (index) => {
-    setSelectedItem(index);
-    setIsMenuOpen(false); // Close the menu when any menu item is clicked
-  };
+  const menuItems = [
+    { name: "Home", href: "#home" },
+    { name: "Sobre Mí", href: "#sobre-mí" },
+    { name: "Proyectos", href: "#proyectos" },
+    { name: "Contacto", href: "#contacto" },
+  ];
 
   return (
+    // Aseguramos que sea "sticky" y le damos un z-index alto
     <Navbar
-      onMenuOpenChange={(isOpen) => setIsMenuOpen(isOpen)}
-      data-menu-open={isMenuOpen ? "true" : "false"}
+      position="sticky"
+      isBordered
+      isBlurred
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+      className="bg-black/30 backdrop-blur-lg z-50" // Añadimos z-50
     >
-      <NavbarBrand>
-        <Logo />
-      </NavbarBrand>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           className="sm:hidden"
-          data-open={isMenuOpen ? "true" : "false"}
         />
-        <Switch
-          defaultSelected
-          size="lg"
-          color="secondary"
-          thumbIcon={({ isSelected, className }) =>
-            isSelected ? (
-              <ArgentinaIcon className={className} />
-            ) : (
-              <InglesIcon className={className} />
-            )
-          }
-          onChange={() =>
-            setLanguage(language === "Español" ? "Inglés" : "Español")
-          }
-        >
-          {language}
-        </Switch>
+        <NavbarBrand>
+          <Logo />
+        </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+
+      <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {menuItems.map((item, index) => (
-          <NavbarItem
-            key={`${item}-${index}`}
-            isActive={selectedItem === index}
-          >
+          <NavbarItem key={`${item.name}-${index}`}>
             <Link
-              color={selectedItem === index ? "primary" : "foreground"}
-              href={`#${item}`}
-              size="lg"
-              onClick={() => handleMenuItemClick(index)}
+              color="foreground"
+              href={item.href}
+              className="capitalize hover:text-blue-400 transition-colors"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
 
-      <NavbarMenu data-menu-open={isMenuOpen ? "true" : "false"}>
+      <NavbarMenu className="bg-black/80">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.name}-${index}`}>
             <Link
-              color={selectedItem === index ? "primary" : "foreground"}
+              color="foreground"
               className="w-full"
-              href={`#${item}`}
+              href={item.href}
               size="lg"
-              onClick={() => handleMenuItemClick(index)}
+              onClick={() => setIsMenuOpen(false)}
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

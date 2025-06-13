@@ -1,40 +1,28 @@
 import Menu from "./components/Menu/Menu";
-import Imagen from "./components/Imagen";
 import Proyects from "./components/Proyects/Proyects";
 import Contact from "./components/Contact/Contact";
-import Intro from "./components/Intro";
-import SobreMi from "./components/SobreMi";
-import { motion } from "framer-motion";
-import { Divider } from "@nextui-org/react";
+import Hero from "./components/Hero";
+import About from "./components/SobreMi";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Menu />
-      <div className="h-20" id="home"></div>
-      <div>
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0 }}
-          className="flex justify-center "
-        >
-          <Imagen />
-        </motion.div>
+    <div>
+      {/* Fondo decorativo: Añadimos 'overflow-hidden' aquí */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className="absolute top-[-20rem] left-[-20rem] w-[40rem] h-[40rem] bg-blue-900/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-[-15rem] right-[-15rem] w-[35rem] h-[35rem] bg-teal-900/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div>
-        <Intro />
-      </div>
-      <div>
-        <SobreMi />
-      </div>
-      <div id="proyects" className="mt-6">
-        <Divider className="my-4" />
-      </div>
-      <Proyects />
-      <Contact />
-    </>
+      <Menu />
+      <main>
+        <Hero />
+        <About />
+        <Proyects />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
