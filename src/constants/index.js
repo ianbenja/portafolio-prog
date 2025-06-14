@@ -37,20 +37,26 @@ export const PROJECTS = [
     link: "https://ianbenja.github.io/paleta-colores/", // Reemplaza con el enlace al demo
   },
   {
-    title: "E-commerce de Ropa",
-    image: project3,
+    title: "Aplicación de Pomodoro y Tareas",
+    image: project3, // Reemplaza con una captura de pantalla de tu proyecto
     description:
-      "Una tienda en línea moderna y responsiva con carrito de compras, pasarela de pago y panel de administración de productos.",
-    technologies: ["Angular", "TypeScript", "Node.js", "Express", "MongoDB"],
-    github: "#",
-    link: "#",
+      "Aplicación de productividad que combina la técnica Pomodoro con una lista de tareas. Permite asignar tareas a los ciclos de estudio, registrar el tiempo dedicado y visualizar estadísticas detalladas con gráficos por cada tarea.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/ianbenja/tareas-estudio",
+    link: "https://ianbenja.github.io/tareas-estudio/",
   },
   {
-    title: "Clon de Red Social",
+    title: "Applicacion de seguridad social",
     image: project4,
     description:
-      "Una aplicación web que replica las funcionalidades básicas de una red social, incluyendo perfiles de usuario, posts y comentarios en tiempo real.",
-    technologies: ["React", "Firebase", "Tailwind CSS"],
+      "Una aplicación de celular que sirve para el monitoreo en tiempo real de contactos 'zentinelas' con la creacion de zonas seguras y alertas de seguridad.",
+    technologies: [
+      "Node.js",
+      "ReactNative",
+      "PostgreSQL",
+      "React",
+      "Tailwind CSS + NativeWind",
+    ],
     github: "#",
     link: "#",
   },
