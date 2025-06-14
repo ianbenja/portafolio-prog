@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Button, Link, Avatar } from "@nextui-org/react";
 import { FiDownload } from "react-icons/fi";
-import { PRESENTACION } from "../constants"; // <-- Corregido aquí
+import { PRESENTACION } from "../constants";
 import { Section } from "./Section";
 import ian from "./../assets/images/ian.jpg";
+import cvFile from "/BenjaminIan_CV.pdf"; // Importamos el CV
 
 const Hero = () => {
   const containerVariants = {
@@ -79,8 +80,9 @@ const Hero = () => {
               Contrátame
             </Button>
             <Button
-              as={Link}
-              href="#" // Añade aquí el enlace a tu CV
+              as="a" // Cambiado a 'a' para que funcione como un enlace
+              href={cvFile} // Usamos la variable importada
+              download="CV-IanBenjamin.pdf" // El nombre que tendrá el archivo al descargar
               variant="ghost"
               size="lg"
               endContent={<FiDownload />}

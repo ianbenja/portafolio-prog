@@ -19,6 +19,15 @@ const Proyects = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const handleCardClick = (e, project) => {
+    // Si el proyecto está en proceso, o si el click se hizo sobre un botón o enlace, no hacer nada.
+    if (project.inProgress || e.target.closest("button, a")) {
+      return;
+    }
+    // Si es un proyecto válido, abrir el enlace en una nueva pestaña
+    window.open(project.link, "_blank");
+  };
+
   return (
     <Section id="proyectos">
       <SectionTitle>Proyectos</SectionTitle>
@@ -31,8 +40,16 @@ const Proyects = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
+            className={`relative ${
+              project.inProgress ? "group" : "cursor-pointer"
+            }`} // Se añade cursor-pointer a las tarjetas clickeables
+            onClick={(e) => handleCardClick(e, project)}
           >
-            <Card className="w-full h-full border border-neutral-800 bg-neutral-900/50 hover:border-blue-500/50 transition-all duration-300 group">
+            <Card
+              className={`w-full h-full border border-neutral-800 bg-neutral-900/50 hover:border-blue-500/50 transition-all duration-300 ${
+                project.inProgress ? "group-hover:blur-sm" : ""
+              }`}
+            >
               <CardHeader className="p-0 overflow-hidden">
                 <img
                   alt={project.title}
@@ -51,7 +68,6 @@ const Proyects = () => {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {/* Corregido a 'technologies' */}
                   {project.technologies.map((tech, i) => (
                     <Chip key={i} color="primary" variant="flat" size="sm">
                       {tech}
@@ -65,26 +81,40 @@ const Proyects = () => {
                   <Button
                     as={Link}
                     href={project.github}
+                    isExternal // Asegura que se abra en una nueva pestaña
                     isIconOnly
                     color="default"
                     variant="ghost"
                     aria-label="Github"
+                    isDisabled={project.inProgress}
                   >
                     <FaGithub className="text-xl" />
                   </Button>
                   <Button
                     as={Link}
                     href={project.link}
+                    isExternal // Asegura que se abra en una nueva pestaña
                     isIconOnly
                     color="default"
                     variant="ghost"
                     aria-label="Live Demo"
+                    isDisabled={project.inProgress}
                   >
                     <FaLink className="text-lg" />
                   </Button>
                 </div>
               </CardFooter>
             </Card>
+
+            {project.inProgress && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="bg-black bg-opacity-70 p-4 rounded-lg">
+                  <h3 className="font-extrabold text-white text-2xl">
+                    En Proceso
+                  </h3>
+                </div>
+              </div>
+            )}
           </motion.div>
         ))}
       </div>

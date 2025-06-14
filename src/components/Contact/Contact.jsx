@@ -1,18 +1,36 @@
 import { motion } from "framer-motion";
 import { Button, Link } from "@nextui-org/react";
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMail, FiMapPin } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa"; // Importamos el ícono de WhatsApp
 import { CONTACT } from "../../constants";
 import { Section, SectionTitle } from "../Section";
 
 const Contact = () => {
+  // Función para limpiar el número de teléfono y prepararlo para el enlace de WhatsApp
+  const getWhatsAppLink = (phone) => {
+    const cleanedPhone = phone.replace(/[+\s-()]/g, "");
+    return `https://wa.me/${cleanedPhone}`;
+  };
+
   const contactItems = [
-    { icon: <FiMail />, text: CONTACT.email, href: `mailto:${CONTACT.email}` },
     {
-      icon: <FiPhone />,
-      text: CONTACT.phone,
-      href: `tel:${CONTACT.phone.replace(/\s/g, "")}`,
+      icon: <FiMail />,
+      text: CONTACT.email,
+      href: `mailto:${CONTACT.email}`,
     },
-    { icon: <FiMapPin />, text: CONTACT.address, href: "#" },
+    {
+      icon: <FaWhatsapp />, // Usamos el ícono de WhatsApp
+      text: CONTACT.phone,
+      href: getWhatsAppLink(CONTACT.phone), // Generamos el enlace de WhatsApp
+    },
+    {
+      icon: <FiMapPin />,
+      text: CONTACT.address,
+      // BONUS: Hice que la dirección abra en Google Maps
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        CONTACT.address
+      )}`,
+    },
   ];
 
   return (
@@ -35,6 +53,7 @@ const Contact = () => {
               key={index}
               as={Link}
               href={item.href}
+              isExternal // Importante para que los enlaces se abran correctamente
               className="bg-neutral-900/50 border border-neutral-800"
               startContent={<span className="text-blue-400">{item.icon}</span>}
               size="lg"

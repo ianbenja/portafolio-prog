@@ -59,11 +59,12 @@ export const PROJECTS = [
     ],
     github: "#",
     link: "#",
+    inProgress: true, // Se agregó esta línea para indicar que el proyecto está en desarrollo
   },
 ];
 
 export const CONTACT = {
   address: "Córdoba, Argentina",
-  email: "ian.benjamin.dev@email.com",
-  phone: "+54 9 351 123 4567",
+  email: "iannicolasbenjamin@gmail.com",
+  phone: "+54 9 299 505 5786",
 };
