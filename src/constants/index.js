@@ -24,17 +24,17 @@ export const PROJECTS = [
     description:
       "Desarrollo de una herramienta de ayuda a la toma de decisiones complejas donde se tienen que tener en cuenta múltiples criterios, utilizando un enfoque analítico jerárquico.",
     technologies: ["React", "AWS", "Python", "Lambda"],
-    github: "#", // Reemplaza con tu enlace de GitHub
-    link: "#", // Reemplaza con el enlace al demo
+    github: "https://github.com/ianbenja/dec-app", // Reemplaza con tu enlace de GitHub
+    link: "https://ianbenja.github.io/dec-app/#/", // Reemplaza con el enlace al demo
   },
   {
-    title: "Plataforma de Gestión de Equipos",
+    title: "Generador de Paletas de Colores",
     image: project2,
     description:
-      "Página que permite inscribir jugadores en equipos de fútbol y modificarlos, además de realizar tu equipo ideal y gestionar estadísticas.",
-    technologies: ["AWS", "React", "Node.JS", "DynamoDB", "S3"],
-    github: "#",
-    link: "#",
+      "Desarrollo de una aplicación web interactiva que analiza imágenes para extraer su paleta de colores predominante. A traves de un motor de nomenclatura inteligente asigna nombre común a cada color.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/ianbenja/paleta-colores", // Reemplaza con tu enlace de GitHub
+    link: "https://ianbenja.github.io/paleta-colores/", // Reemplaza con el enlace al demo
   },
   {
     title: "E-commerce de Ropa",
