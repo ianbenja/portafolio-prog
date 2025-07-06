@@ -3,6 +3,7 @@ import project1 from "./../assets/images/portafolio1.jpg";
 import project2 from "./../assets/images/portafolio2.jpg";
 import project3 from "./../assets/images/portafolio3.jpg";
 import project4 from "./../assets/images/portafolio4.jpg";
+import project5 from "./../assets/images/portafolio5.jpg";
 
 export const PRESENTACION = {
   name: "Ian Benjamín",
@@ -35,6 +36,15 @@ export const PROJECTS = [
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/ianbenja/paleta-colores", // Reemplaza con tu enlace de GitHub
     link: "https://ianbenja.github.io/paleta-colores/", // Reemplaza con el enlace al demo
+  },
+  {
+    title: "Test de CI Interactivo",
+    image: project5, // Reemplaza con una captura de pantalla de tu proyecto de Test de CI
+    description:
+      "Una aplicación web gamificada para evaluar el coeficiente intelectual a través de una serie de preguntas variadas. Incluye cálculo de puntaje ponderado por dificultad y tiempo, y presenta un desglose detallado de resultados por habilidad.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/ianbenja/testIQ",
+    link: "https://ianbenja.github.io/testIQ/",
   },
   {
     title: "Aplicación de Pomodoro y Tareas",
